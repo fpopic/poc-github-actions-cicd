@@ -1,0 +1,13 @@
+name: Run CI/CD
+
+on:
+  push:
+
+jobs:
+  job-ci:
+    name: CI
+    uses: ./.github/workflows/ci.yaml
+  job-cd:
+    needs: job-ci
+    name: CD
+    uses: ./.github/workflows/cd.yaml
